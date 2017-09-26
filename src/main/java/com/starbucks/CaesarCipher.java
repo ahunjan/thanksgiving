@@ -10,7 +10,9 @@ public class CaesarCipher {
 		if (s == null) throw 
      		new NullPointerException("String cannot be null");
 		if (s.isEmpty()) return "";
-	    return s.chars().boxed().map(i -> "" + processChar((char) i.intValue(), shift)).collect(Collectors.joining());
+	    return s.chars().boxed()
+	    		.map(i -> String.valueOf(processChar((char) i.intValue(), shift)))
+	    		.collect(Collectors.joining());
 	}
 
 	public static String encodeBeforeInline(String s, int shift) {
