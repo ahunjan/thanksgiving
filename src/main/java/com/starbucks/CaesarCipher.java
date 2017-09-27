@@ -18,21 +18,6 @@ public class CaesarCipher {
 	    		.collect(Collectors.joining());
 	}
 
-//	public static String encodeBeforeInline(String s, int shift) {
-//		if (s == null) throw
-//     		new NullPointerException("String cannot be null");
-//		if (s.isEmpty()) return "";
-//	    IntStream chars = s.chars();
-//		Stream<Integer> boxed = chars.boxed();
-//		Stream<String> mapped = boxed.map(new Function<Integer, String>() {
-//			@Override
-//			public String apply(Integer i) {
-//				return "" + processChar((char) i.intValue(), shift);
-//			}
-//		});
-//		String collected = mapped.collect(Collectors.joining());
-//		return collected;
-//	}
 	
 	protected static char processChar(char c, int shift) {
 		if (!Character.isAlphabetic(c)) return c;
