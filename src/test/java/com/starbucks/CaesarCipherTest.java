@@ -97,5 +97,36 @@ public class CaesarCipherTest {
     	    String result = CaesarCipher.encode("Hello World!", 1);
         assertThat(result).isEqualTo("Ifmmp Xpsme!");
     }
-    
+
+    @Test
+    public void testDecodeOfSingleCharSmallAByShiftOfNegative1() {
+        char result = CaesarCipher.processChar('a', -1);
+        assertThat(result).isEqualTo('z');
+    }
+
+    @Test
+    public void testDecodeStringCapitalHOfOne() {
+        String result = CaesarCipher.decode("H", 1);
+        assertThat(result).isEqualTo("G");
+    }
+
+    @Test
+    public void testDecodeStringCapitalHOf261() {
+        String result = CaesarCipher.decode("H", 261);
+        assertThat(result).isEqualTo("G");
+    }
+
+    //Green Bar
+    @Test
+    public void testHelloWorldEncodedMatchedWithDecoded() {
+        String result = CaesarCipher.decode(
+                CaesarCipher.encode("Hello World!", 1), 1);
+        assertThat(result).isEqualTo("Hello World!");
+    }
+
+
+    @Test
+    public void instantiateCaesarCipherSecretly() throws Exception {
+         new CaesarCipher();
+    }
 }
