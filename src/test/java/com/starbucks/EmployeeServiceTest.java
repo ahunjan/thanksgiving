@@ -35,4 +35,28 @@ public class EmployeeServiceTest {
 		verify(mock);
 	}
 
+	@Test
+	public void testRegisterEmployeeWhenFoundInDatabase() {
+		Employee employee = new Employee("123-49-3944", "Sam", "Samuels");
+
+		//Collaborator
+		EmployeeDAO mock = createMock(EmployeeDAO.class);
+
+		//Rehearse
+		expect(mock.contains(employee)).andReturn(true);
+
+		//Replay
+		replay(mock);
+
+		//Subject under test
+		EmployeeService employeeService = new EmployeeService(mock);
+
+		//I will be invoking
+		Long id = employeeService.register(employee);
+		assertThat(id).isEqualTo(-199L);
+
+		//Verify
+		verify(mock);
+	}
+
 }
