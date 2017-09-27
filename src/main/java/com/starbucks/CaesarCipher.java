@@ -21,7 +21,7 @@ public class CaesarCipher {
 	
 	protected static char processChar(char c, int shift) {
 		if (!Character.isAlphabetic(c)) return c;
-		char preferredA = Character.isUpperCase(c) ? 'Z' : 'a';
+		char preferredA = Character.isUpperCase(c) ? 'A' : 'a';
 		return (char) ((c + (shift % 26) + 26 - preferredA) % 26 + preferredA);
 	}
 
