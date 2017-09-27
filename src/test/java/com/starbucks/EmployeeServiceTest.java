@@ -18,7 +18,7 @@ public class EmployeeServiceTest {
 		EmployeeDAO mock = createMock(EmployeeDAO.class);
 
 		//Rehearse
-		expect(mock.contains(employee)).andThrow(new SQL)
+		expect(mock.contains(employee)).andReturn(false);
 		expect(mock.insertEmployee(employee)).andReturn(400L);
 
 		//Replay
